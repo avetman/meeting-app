@@ -1,0 +1,27 @@
+{
+  "name": "zoom-test-project",
+  "version": "1.0.0",
+  "description": "Zoom Clone using WebRtc",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "nodemon": "^2.0.21"
+  },
+  "dependencies": {
+    "@socket.io/admin-ui": "^0.5.1",
+    "express": "^4.18.2",
+    "localtunnel": "^2.0.2",
+    "pug": "^3.0.2",
+    "socket.io": "^4.6.1",
+    "ws": "^8.13.0"
+  }
+}

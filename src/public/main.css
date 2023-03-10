@@ -1,0 +1,9 @@
+button{
+    padding: 0.5rem 1rem;
+   
+}
+
+.streamsContainer{
+    display:flex;
+    flex-direction: row;
+}

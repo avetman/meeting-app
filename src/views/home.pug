@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Zyum
+        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        <link rel="stylesheet" type="text/css" href='/public/main.css'>
+        
+    body 
+        main
+            div#welcome
+                form
+                    input(placeholder="room name", id="room_name", required, type="text")
+                    input(placeholder="nick name", id="nick_name" required, type="text")
+                    button Enter room
+                h4 Open ROoms:
+                ul#available-rooms
+            div#room
+                h3.room-name
+                h3.nickname
+                form#name
+                    input(placeholder="nickname", required, type="text")
+                    button Save
+                form#msg
+                    input(placeholder="message", required, type="text")
+                    button Send
+                div.streamsContainer
+                    div#myStream
+                        video#myFace(autoplay, playsinline, width="400", height="400")
+                        button#mute Mute
+                        button#camera Turn Camera off
+                        select#cameras
+                    div#peersStream 
+                        video#peersFace(autoplay, playsinline, width="400", height="400")
+                div#messages-container
+                    ul
+            
+
+            
+        script(src="/socket.io/socket.io.js") 
+        script(src="/public/js/app.js")
