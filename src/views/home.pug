@@ -7,6 +7,7 @@ html(lang="en")
         title Zyum
         link(rel="stylesheet", href="https://unpkg.com/mvp.css")
         <link rel="stylesheet" type="text/css" href='/public/main.css'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         
     body 
         main
@@ -23,19 +24,24 @@ html(lang="en")
                 form#name
                     input(placeholder="nickname", required, type="text")
                     button Save
-                form#msg
-                    input(placeholder="message", required, type="text")
-                    button Send
+
                 div.streamsContainer
-                    div#myStream
-                        video#myFace(autoplay, playsinline, width="400", height="400")
-                        button#mute Mute
-                        button#camera Turn Camera off
+                    div#myStream.card
+                        div.video_container
+                            video#myFace(autoplay, playsinline, width="400", height="300")
+                            div.video-controls
+                                span#mute.material-symbols-outlined volume_up
+                                span#camera.material-symbols-outlined videocam
+
                         select#cameras
-                    div#peersStream 
-                        video#peersFace(autoplay, playsinline, width="400", height="400")
-                div#messages-container
-                    ul
+                    div#peersStream.card
+                        video#peersFace(autoplay, playsinline, width="400", height="300")
+                
+                div#messages-container.card
+                    ul.messages-chat
+                    form#msg
+                        input(placeholder="message", required, type="text")
+                        button.material-symbols-outlined send
             
 
             

@@ -65,8 +65,8 @@ io.on('connection', socket => {
         io.sockets.emit('room_change', publicRooms())
     })
     socket.on('new_message', (msg,room, done) => {
-        socket.to(room).emit('new_message', `${socket.nickname}: ${msg}`);
-        done()
+        socket.to(room).emit('new_message', `${socket.nickname}: ${msg}`, socket.nickname);
+        done(socket.nickname)
     })
     socket.on('nickname', nickname => {
          socket['nickname'] = nickname

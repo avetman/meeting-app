@@ -62,10 +62,10 @@ function handleMuteClick() {
         track.enabled = !track.enabled
     })
     if(!muted){
-        muteBtn.innerText = "Unmute"
+        muteBtn.innerText = "volume_off"
         muted = true
     }else {
-        muteBtn.innerText = "Mute"
+        muteBtn.innerText = "volume_up"
         muted = false
     }
 }
@@ -76,11 +76,11 @@ function handleCameraClick() {
         track.enabled = !track.enabled
     })
     if(!cameraOff){
-        cameraBtn.innerText = "Turn Camera Off"
+        cameraBtn.innerText = "videocam_off"
         cameraOff = true
     }else {
         cameraOff = false
-        cameraBtn.innerText = "Turn Camera On"
+        cameraBtn.innerText = "videocam"
     }
 }
 async function handleCameraChange() {
@@ -134,9 +134,14 @@ muteBtn.addEventListener('click', handleMuteClick)
 cameraBtn.addEventListener('click', handleCameraClick)
 camerasSelect.addEventListener('input', handleCameraChange)
 
-function addMessage (message) {
+function addMessage (message, nickname) {
     const ul = room.querySelector('ul');
     const li = document.createElement('li');
+    li.className = 'message';
+    if(nickname){
+        li.className = 'response';
+    }
+   
     li.innerText = message;
     ul.appendChild(li);
 }
@@ -144,7 +149,7 @@ const handleMessageSubmit = (e) => {
     e.preventDefault();
     const input = room.querySelector('#msg input');
     const value = input.value;
-    socket.emit('new_message', input.value,roomName, () => {
+    socket.emit('new_message', input.value,roomName,() => {
         addMessage(`You ${value}`)
     });
     input.value = ""
